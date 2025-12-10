@@ -1,43 +1,57 @@
 %---------- Inleiding ---------------------------------------------------------
 
-% TODO: Is dit voorstel gebaseerd op een paper van Research Methods die je
-% vorig jaar hebt ingediend? Heb je daarbij eventueel samengewerkt met een
-% andere student?
-% Zo ja, haal dan de tekst hieronder uit commentaar en pas aan.
 
-%\paragraph{Opmerking}
-
-% Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
-% kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
-% uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
-% 
 
 \section{Inleiding}%
 \label{sec:inleiding}
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
+% Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
 
 \begin{itemize}
   \item kaderen thema
-Digitale veiligheid is een essentiële vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat.
-  \item de doelgroep
-Jonggepensioneerden bezitten vaak voldoende digitale basisvaardigheden maar hebben minder ervaring met moderne beveiligingstool. Zo blijken ze moeilijk te overtuigen van het nut van wachtwoordmanagers.
-Uit onderzoek door Ray et al(2021) blijkt dat deze groep wachtwoordmanagers als complex, onveilig of verwarrend beschouwen, ondanks dat ze baat zouden hebben bij veilig en gestructureerd wachtwoordbeheer. 
-  \item de probleemstelling en (centrale) onderzoeksvraag
-Deze bachelorproef vertrekt vanuit de nood aan een veilige, webgebaseerde simulatieomgeving waarin jonggepensioneerden zonder risico kunnen leren werken met een wachtwoordmanager. Deze oefenomgeving moet gebruikers toelaten om handelingen uit te voeren zoals genereren van sterke wachtwoorden, opslaan van logins en het herkennen van beveiligingsprincipes. Dit allemaal zonder dat er echte accounts of persoonsgegevens gebruikt worden.
-De centrale onderzoeksvraag luidt daarom: "In welke mate is een game-engine, zoals Unity, geschikt om een webgebaseerde simulatie te ontwikkelen waarmee jonggepensioneerden op een veilige en toegankelijke manier kunnen oefenen met het gebruik van een wachtwoordmanager?"
-Om deze vraag te beantwoorden wordt onderzocht welke noden, beperkingen en verwachtingen jonggepensioneerden hebben bij het leren gebruiken van wachtwoordmanagers, welke technische uitdagingen er bestaan bij het ontwikkelen van webgebaseerde simulaties en in welke mate Unity hierin een geschikte oplossing kan bieden.
+Digitale veiligheid is een essentiële vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat. Wachtwoordmanagers zijn een belangrijk hulpmiddel om sterke, unieke wachtwoorden te genereren en beheren, wat cruciaal is voor het beschermen van persoonlijke digitale gegevens. 
+Uit een wereldwijde survey van Bitwarden (2022) blijkt dat 32\% van de respondenten wachtwoorden hergebruikt over meerdere sites, 55\% vertrouwen op geheugen voor wachtwoorden en slechts 34\% gebruiken een wachtwoordmanager \autocite{Bitwarden2024}. Hieruit blijkt dat er een aanzienlijke kloof bestaat tussen de kennis over veilig wachtwoordbeheer en het gebruik ervan.
+Deze bevindingen onderstrepen de nood aan een veilige, webgebaseerde oefenomgeving ("sandbox") waarin beginnende gebruikers zonder risico kunnen leren werken met een wachtwoordmanager. Deze oefenomgeving moet gebruikers toelaten om handelingen uit te voeren zoals genereren van sterke wachtwoorden, opslaan van logins en het herkennen van beveiligingsprincipes. Dit allemaal zonder dat er echte accounts of persoonsgegevens gebruikt worden.
+
+\item Doelgroep en casus
+Deze bachelorproef richt zich op gebruikers zonder ervaring met wachtwoordmanagers. Het testpubliek bestaat uit een representatieve groep mensen uit het persoonlijke netwerk van de student (vrienden, kennissen, familie, medestudenten). Zij zullen gevraagd worden om de ontwikkelde simulatieomgeving uit te proberen, zodat observaties kunnen worden verzameld over de user experience en bruikbaarheid van de tool.
+
+\item Probleemstelling en onderzoeksvraag
+De centrale onderzoeksvraag luidt: "In welke mate is de game-engine Unity geschikt om een webgebaseerde simulatie te ontwikkelen waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en toegankelijke manier kunnen oefenen met het gebruik ervan?"
+
+Deze hoofdvraag wordt opgesplitst in volgende deelonderzoeksvragen:
+
+\begin{enumerate}
+    % Gebruikersonderzoek
+    \item Welke verschillende typen wachtwoordmanagers bestaan er?
+    \item Welke begeleidende informatie en tutorials biedene bestaande wachtwoordmanagers aan voor beginnende gebruikers?
+    \item Welke functionele, technische en didactische noden hebben beginnende gebruikers zonder ervaring met wachtwoordmanagers bij het aanleren van veilig wachtwoordbeheer?
+    \item Welke informatieve functies (bv. wachtwoordsterkte-indicatoren, waarschuwingen, security check-ups) bieden bestaande wachtwoordmanagers, en hoe dragen deze bij aan inzicht en gedragsverandering bij beginners?
+    \item Welke drempels ervaren beginnende gebruikers bij het gebruik van wachtwoordmanagers?
+    
+    % Analyse bestaande leeromgevingen
+    \item Welke risico’s of beperkingen bestaan er in bestaande leeromgevingen voor wachtwoordbeheer?
+    \item Welke functionele en niet-functionele requirements volgen hieruit voor een veilige webgebaseerde simulatieomgeving?
+    
+    % Technische haalbaarheid Unity
+    \item In welke mate ondersteunt Unity (met WebGL-export) deze requirements op vlak van performantie, toegankelijkheid, UX en beveiliging?
+    \item Welke bestaande frameworks, libraries of workflows bestaan er binnen Unity voor het bouwen van simulaties, digitale trainingsomgevingen of “digital twins”?
+    \item In welke mate zijn er Unity-assets, design patterns of template-scenes beschikbaar die kunnen worden hergebruikt voor het bouwen van een “fake computer” met fictieve browser en websites?
+    \item Kan de simulatie generiek uitbreidbaar worden naar andere soorten cybersecurity-workshops, of moet elk scenario volledig vanaf nul ontwikkeld worden?
+    \item Welke ontwerpkeuzes zijn nodig om een werkend proof-of-concept te realiseren, en welke beperkingen komen hierbij naar voren?
+\end{enumerate}
+
   \item de onderzoeksdoelstelling
-De doelstelling van dit onderzoek bestaat uit twee delen. Enerzijds wordt onderzocht aan welke functionele, technische en toegankelijkheidsvereisten een leeromgeving voor jonggepensioneerden moet voldoen. Anderzijds wordt er een protoype ontwikkeld om de mogelijkheden en beperkingen van Unity voor dit soort educatieve toepassingen te evalueren. Het eindresultaat moet ontwikkelaars inzicht geven in de bruikbaarheid van een game-engine voor webgebaseerde simulatie en bijdragen aan de ontwikkeling van digitale leeromgevingen voor deze specifieke doelgroep.
+De doelstelling van dit onderzoek bestaat uit twee delen. Enerzijds in kaart brengen aan welke functionele, technische en toegankelijkheidsvereisten een leeromgeving voor beginnende gebruikers moet voldoen. Anderzijds een proof-of-concept ontwikkelen en evalueren, waarmee de mogelijkheden en beperkingen van Unity voor dit soort educatieve toepassingen duidelijk worden gemaakt. Het eindresultaat moet ontwikkelaars inzicht geven in de haalbaarheid, gebruikerservaring en mogelijke beperkingen van dergelijke simulatie.
 \end{itemize}
 
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
+%Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
 
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
+%De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
 
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
+%Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
 
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
+%Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
 
 %---------- Stand van zaken ---------------------------------------------------
 
@@ -67,40 +81,56 @@ Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur v
 \section{Methodologie}%
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+%Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+%Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+%Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+%Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+%Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+%Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+Het onderzoek wordt uitgevoerd in vier fasen, elk gericht op het beantwoorden van specifieke deelonderzoeksvragen en het realiseren van de doelstellingen van de bachelorproef
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\begin{enumerate}
+    \item \textbf{Literatuurstudie (week 1-3):} \\
+    In een eerste fase wordt een literatuurstudie uitgevoerd om bestaande kennis in kaart te brengen. Hierbij wordt onderzocht welke typen wachtwoordmanagers bestaan en welke info ze bieden, hoe beginnende gebruikers zonder ervaring omgaan met wachtwoordmanagers, welke drempels zij ervaren, welke risico's verbonden zijn aan het niet gebruiken van dergelijke beveiligingstools en welke toegankelijkheidsprincipes relevant zijn voor deze doelgroep. Deze inzichten vormen de basis voor de requirements-analyse.
+    \item \textbf{Requirements-analyse (week 3-5):} \\
+    In deze fase wordt een requirements-analyse uitgevoerd. Hierbij worden bestaande leeromgevingen rond wachtwoordbeheer geanalyseerd om inzicht te krijgen in hun sterke punten, beperkingen en geschiktheid voor beginnende gebruikers. Op basis hiervan worden de noodzakelijke funtionele en niet-functionele requirements voor een veilige webgebaseerde simulatie opgesteld. Deze requirements zullen als referentie dienen voor de proof-of-concept.
+    \item \textbf{Technische evaluatie van Unity (week 5-7):} \\
+    In een derde fase wordt Unity geëvalueerd op technische haalbaarheid. Hierbij wordt onderzocht in welke mate Unity geschikt is voor webgebaseerde simulatie, specifiek gericht op performance binnen een WebGL-omgeving, toegankelijkheid, UX, beveiliging en ontwikkeltijd. Tevens wordt gekeken naar bestaande frameworks, libraries en design patterns binnen Unity die relevant zijn voor het bouwen van een "fake computer" met fictieve browser en websites. 
+    \item \textbf{Proof-of-concept ontwikkeling (week 7-12):} \\
+    In een vierde fase wordt er een proof-of-concept ontwikkeld. Deze simulatie, gebouwd in Unity met WebGL-export, bevat onder andere volgende functies:
+    \begin{itemize}
+        \item het aanmaken van fictieve accounts en het genereren en opslaan van wachtwoorden;
+        \item feedback- en bewustwordingsmechanismen die gebruikers begeleiden bij veilig wachtwoordbeheer;
+        \item een beveiligde sandboxomgeving waarin geen persoonlijke gegevens gebruikt worden.
+    \end{itemize} 
+    Het proof-of-concept wordt getest door een kleine, representatieve groep beginnende gebruikers uit het netwerk van de student. het doel is om feedback te verzamelen over de gebruikservaring, bruikbaarheid en eventuele technische beperkingen van de simulatie.
+  \end{enumerate}
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
-
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
-
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
-In een eerste fase wordt een literatuurstudie uitgevoerd om bestaande kennis in kaart te brengen. Hierbij wordt onderzocht hoe jonggepensioneerden omgaan met wachtwoordmanagers, welke drempels zij ervaren, welke risico's verbonden zijn aan het niet gebruiken van dergelijke beveiligingstools en welke toegankelijkheidsprincipes relevant zijn voor deze doelgroep. 
-In een tweede fase wordt een requirements-analyse uitgevoerd. Hierbij worden bestaande leeromgevingen rond wachtwoordbeheer geanalyseerd om inzicht te krijgen in hun sterke punten, beperkingen en geschiktheid voor jonggepensioneerden. Op basis hiervan worden de noodzakelijke funtionele en niet-functionele requirements voor een webgebaseerde simulatie opgesteld. 
-In een derde fase wordt Unity geëvalueerd op technische haalbaarheid. Hierbij wordt onderzocht in welke mate Unity geschikt is voor webgebaseerde simulatie, specifiek gericht op performance binnen een WebGL-omgeving, toegankelijkheidsmogelijkheden, beveiligingsaspecten en verwachte ontwikkeltijd.
-In een vierde en laatste fase wordt er een proof-of-concept ontwikkeld. Deze simulatie, gebouwd in Unity met WebGL-export, bevat onder andere volgende functies: het aanmaken van fictieve accounts, genereren en opslaan van wachtwoorden, feedback- en bewustwordingsmechanismen en een beveiligde sandboxomgeving waarin geen persoonlijke gegevens gebruikt kunnen worden. Het prototype dient als demonstratie van de haalbaarheid en gebruikerservaring van een webgebaseerde simulatie.
-
-Tijdsplanning:
-Literatuurstudie      week 1-3    Hoofdstuk literatuur
-Requirementsanalyse   week 3-5    Requirementsdocument
-Technische evaluatie  week 5-7    Evaluatierapport Unity
-Proof-of-concept      week 7-12   Werkend prototype
+\textbf{Deliverables per fase:}
+\begin{itemize}
+    \item Literatuurstudie: overzicht van bestaande kennis, uitdagingen en best practices voor wachtwoordmanagers en educatieve simulaties
+    \item Requirements-analyse: document met functionele en niet-functionele requirements voor de webgebaseerde simulatieomgeving
+    \item Technische evaluatie: rapport met haalbaarheid, beperkingen en aanbevelingen voor Unity 
+    \item Proof-of-concept: werkend webgebaseerd prototype, inclusief observatierapport van gebruikerservaring
+\end{itemize}
 
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
+%Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
+%Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
+%Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
+In deze bachelorproef wordt een proof-of-concept ontwikkeld van een webgebasseerde simulatie waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en laagdrempelige manier kunnen oefenen met het gebruik van een wachtwoordmanager. 
+Daarnaast wordt een technische evaluatie van Unity uitgevoerd op basis van meetbare criteria, waaronder performantie binnen een WebGL-omgeving, toegankelijkheid, gebruiksvriendelijkheid en ontwikkelcomplexiteit. 
+Verwacht wordt dat Unity geschikt is om een realistische simulatieomgeving te creëren maar dat WebGL-performance beperkingen kan opleggen op vlak van laadtijden en prestaties. Ook wordt verwacht dat Unity minder toegankelijkheidsopties biedt dan traditionele webtechnologieën.
 
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
+De meerwaarde van deze bachelorproef ligt in:
+\begin{itemize} 
+  \item het in kaart brengen van de technische haalbaarheid van Unity voor webgebaseerde educatieve simulaties; 
+  \item het ontwikkelen van een proof-of-concept dat aanbiedt hoe beginnende gebruikers veilig kunnen leren werken met wachtwoordmanagers in een risicovrije omgeving;
+  \item De resultaten kunnen bijdragen aan het ontwikkelen van beter toegankelijke leermiddelen en een verhoogde digitale bewustwording veilig wachtwoordbeheer.
+\end{itemize}
 
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
-
-In deze bachelorproef wordt een proof-of-concept ontwikkeld van een webgebasseerde simulatie waarmee jonggepensioneerden op een veilige en laagdrempelige manier kunnen oefenen met het gebruik van een wachtwoordmanager. 
-Daarnaast wordt een technische evaluatie van Unity uitgevoerd op basis van meetbare criteria, waaronder performantie binnen een WebGL-omgeving, toegankelijkheidsmogelijkheden en ontwikkelcomplexiteit.. 
-Verwacht wordt dat Unity geschikt kan zijn om een realistische simulatieomgeving te creëren maar dat WebGL-performance beperkingen kan opleggen op vlak van laadtijden en prestaties. Ook wordt verwacht dat Unity minder toegankelijkheidsopties biedt dan traditionele webtechnologieën.
-De meerwaarde van deze bachelorproef ligt in het in kaart brengen van de technische haalbaarheid van Unity voor webgebaseerde simulaties en het ontwikkelen van een prototype. De resultaten kunnen bijdragen aan het ontwikkelen van beter toegankelijke leermiddelen en een verhoogde bewustwording rond het veilig wachtwoordbeheer bij jonggepensioneerden.
