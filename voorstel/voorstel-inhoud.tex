@@ -1,24 +1,17 @@
 %---------- Inleiding ---------------------------------------------------------
 
-
-
 \section{Inleiding}%
 \label{sec:inleiding}
 
 % Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
 
 \begin{itemize}
-  \item kaderen thema
-Digitale veiligheid is een essentiële vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat. Wachtwoordmanagers zijn een belangrijk hulpmiddel om sterke, unieke wachtwoorden te genereren en beheren, wat cruciaal is voor het beschermen van persoonlijke digitale gegevens. 
-Uit een wereldwijde survey van Bitwarden (2022) blijkt dat 32\% van de respondenten wachtwoorden hergebruikt over meerdere sites, 55\% vertrouwen op geheugen voor wachtwoorden en slechts 34\% gebruiken een wachtwoordmanager \autocite{Bitwarden2024}. Hieruit blijkt dat er een aanzienlijke kloof bestaat tussen de kennis over veilig wachtwoordbeheer en het gebruik ervan.
+
+Digitale veiligheid is een noodzakelijke vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat. Wachtwoordmanagers zijn een belangrijk hulpmiddel om sterke, unieke wachtwoorden te genereren en beheren, wat belangrijk is voor het beschermen van persoonlijke digitale gegevens. 
+Uit een wereldwijde survey van \textcite{Bitwarden2022} blijkt dat 32\% van de respondenten wachtwoorden hergebruikt over meerdere sites, 55\% vertrouwen op geheugen voor wachtwoorden en slechts 34\% gebruiken een wachtwoordmanager \autocite{Bitwarden2022}. Hieruit blijkt dat er een aanzienlijke kloof bestaat tussen de kennis over veilig wachtwoordbeheer en het gebruik ervan.
 Deze bevindingen onderstrepen de nood aan een veilige, webgebaseerde oefenomgeving ("sandbox") waarin beginnende gebruikers zonder risico kunnen leren werken met een wachtwoordmanager. Deze oefenomgeving moet gebruikers toelaten om handelingen uit te voeren zoals genereren van sterke wachtwoorden, opslaan van logins en het herkennen van beveiligingsprincipes. Dit allemaal zonder dat er echte accounts of persoonsgegevens gebruikt worden.
-
-\item Doelgroep en casus
 Deze bachelorproef richt zich op gebruikers zonder ervaring met wachtwoordmanagers. Het testpubliek bestaat uit een representatieve groep mensen uit het persoonlijke netwerk van de student (vrienden, kennissen, familie, medestudenten). Zij zullen gevraagd worden om de ontwikkelde simulatieomgeving uit te proberen, zodat observaties kunnen worden verzameld over de user experience en bruikbaarheid van de tool.
-
-\item Probleemstelling en onderzoeksvraag
 De centrale onderzoeksvraag luidt: "In welke mate is de game-engine Unity geschikt om een webgebaseerde simulatie te ontwikkelen waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en toegankelijke manier kunnen oefenen met het gebruik ervan?"
-
 Deze hoofdvraag wordt opgesplitst in volgende deelonderzoeksvragen:
 
 \begin{enumerate}
@@ -71,13 +64,25 @@ De doelstelling van dit onderzoek bestaat uit twee delen. Enerzijds in kaart bre
 %   ...'')
 %Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
 
- Het belang van veilig wachtwoordbeheer wordt in de literatuur vaak benadrukt. Gebruikers die hun wachtwoorden hergebruiken over meerdere sites lopen een verhoogd risico op cyberaanvallen \autocite{Gaw2006}. Studies tonen aan dat het gebruik van wachtwoordmanagers niet langer een luxe is, maar een noodzaak voor het behouden van digitale veiligheid \autocite{CMU2025}.
- Echter blijkt uit onderzoek dat veel beginnende gebruikers terughoudend zijn om deze tools te gebruiken. Volgens \textcite{Pearman2019} ervaren gebruikers vaak een gebrek aan vertrouwen in de beveiliging van wachtwoordmanagers, evenals zorgen over de complexiteit van het gebruik ervan. Sommige gebruikers geven aan niet te weten dat er betere opties beschikbaar zijn dan het simpelweg onthouden van wachtwoorden of het opschrijven ervan.  
- Binnen security awareness wordt steeds duidelijker dat traditionele methoden zoals tekstuele handleidingen of tutorials niet voldoende zijn om gebruikers effectief te trainen in veilig wachtwoordbeheer. Een belangrijke reden hiervoor is dat gebruikers wel advies krijgen over veilig gedrag, maar dit niet in de praktijk kunnen brengen zonder risico op fouten of datalekken \autocite{Sugatan2020}. \textcite{Sugatan2020} gebruikte in hun onderzoek een interactieve, verhalende leeromgeving waar gebruikers de kans kregen om beslissingen te nemen rond wachtwoordgedrag en vervolgens ook de gevolgen te zien. De onderzoekers stelde vast dat deze aanpak leidde tot een beter begrip, meer vertrouwen en een grotere bereidheid om zelf een wachtwoordmanager te gebruiken.
- Dit onderzoek benadrukt het potentieel van interactieve simulaties als een effectieve methode om beginnende gebruikers te trainen in veilig wachtwoordbeheer.
- 
- \textcite{Zawalnyski2025} verdeeld wachtwoordmanagers in drie categorieën: browser-, cloud- en desktop-based. Verschillende internet browsers zoals Google Chrome en Safari, bieden ingebouwde wachtwoordmanagers aan die gebruikers in staat stellen om wachtwoorden op te slaan en automatisch in te vullen. Cloud-gebaseerrde wachtwoordmanagers worden meestal gedownload en beheerd op mobiele apparaten of desktop. Dit type slaan wachtwoorden op in een beveiligde cloudomgeving. Desktop-gebasseerde wachtwoordmanagers worden lokaal op de computer geïnstalleerd en slaan wachtwoorden lokaal op. Elk type heeft zijn voor- en nadelen, afhankelijk van de behoeften van de gebruiker.
+\section{Het belang van veilig wachtwoordbeheer}
 
+Het belang van veilig wachtwoordbeheer wordt in de literatuur vaak benadrukt. Gebruikers die hun wachtwoorden hergebruiken over meerdere sites lopen een verhoogd risico op cyberaanvallen \autocite{Gaw2006}. Studies tonen bovendien aan dat het gebruik van wachtwoordmanagers niet langer een luxe is, maar een noodzaak voor het behouden van digitale veiligheid \autocite{CMU2025}.
+
+\section{Typen wachtwoordmanagers}
+\textcite{Zawalnyski2025} verdeelt wachtwoordmanagers in drie categorieën: browser-, cloud- en desktop-gebaseerd. Verschillende internet browsers zoals Google Chrome en Safari, bieden ingebouwde wachtwoordmanagers aan die gebruikers in staat stellen om wachtwoorden op te slaan en automatisch in te vullen. Cloud-gebaseerrde wachtwoordmanagers worden meestal gedownload en beheerd op mobiele apparaten of desktop. Dit type slaan wachtwoorden op in een beveiligde cloudomgeving. Desktop-gebasseerde wachtwoordmanagers worden lokaal op de computer geïnstalleerd en slaan wachtwoorden lokaal op. 
+Elk type heeft zijn voor- en nadelen, afhankelijk van de behoeften van de gebruiker.
+
+\section{Drempels voor beginnende gebruikers}
+Ondanks de voordelen blijkt uit onderzoek dat veel beginnende gebruikers terughoudend zijn om deze tools te gebruiken. Volgens \textcite{Pearman2019} hebben gebruikers vaak onvoldoende vertrouwen in de beveiliging van deze tools en ervaren de werking ervan als complex. Daarnaast weten sommige gebruikers niet dat er betere opties bestaan dan het simpelweg onthouden van wachtwoorden of het opschrijven ervan.  
+
+\section{Beperkingen van traditionele leermethoden}
+Binnen security awareness wordt steeds duidelijker dat traditionele methoden, zoals tekstuele handleidingen of tutorials, niet voldoende zijn om gebruikers effectief te trainen in veilig wachtwoordbeheer. Een belangrijke oorzaak is dat gebruikers wel advies krijgen over veilig gedrag, maar dit niet in de praktijk kunnen brengen zonder risico op fouten of datalekken \autocite{Sugatan2020}. 
+
+\section{Interactieve leeromgevingen als oplossing}
+\textcite{Sugatan2020} gebruikten in hun onderzoek een interactieve, verhalende leeromgeving waar gebruikers de kans kregen om beslissingen te nemen rond wachtwoordgedrag en vervolgens ook de gevolgen te zien. De onderzoekers stelden vast dat deze aanpak leidde tot een beter begrip, meer vertrouwen en een grotere bereidheid om zelf een wachtwoordmanager te gebruiken.
+ Dit onderzoek onderstreept het potentieel van interactieve simulaties als een effectieve methode om beginnende gebruikers te trainen in veilig wachtwoordbeheer.
+
+ 
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
