@@ -10,8 +10,11 @@
 \item \colorbox{probleemstelling}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Concrete probleemstelling:} Digitale veiligheid is een noodzakelijke vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat. Wachtwoordmanagers zijn een belangrijk hulpmiddel om sterke, unieke wachtwoorden te genereren en beheren, wat belangrijk is voor het beschermen van persoonlijke digitale gegevens. 
 Uit een wereldwijde survey van \textcite{Bitwarden2022} blijkt dat 32\% van de respondenten wachtwoorden hergebruikt over meerdere sites, 55\% vertrouwen op geheugen voor wachtwoorden en slechts 34\% gebruiken een wachtwoordmanager \autocite{Bitwarden2022}. Hieruit blijkt dat er een aanzienlijke kloof bestaat tussen de kennis over veilig wachtwoordbeheer en het gebruik ervan.
 Deze bevindingen onderstrepen de nood aan een veilige, webgebaseerde oefenomgeving waarin beginnende gebruikers zonder risico kunnen leren werken met een wachtwoordmanager. Deze oefenomgeving moet gebruikers toelaten om handelingen uit te voeren zoals genereren van sterke wachtwoorden, opslaan van logins en het herkennen van beveiligingsprincipes. Dit allemaal zonder dat er echte accounts of persoonsgegevens gebruikt worden.}}
-Deze bachelorproef richt zich op gebruikers zonder ervaring met wachtwoordmanagers. Het testpubliek bestaat uit een representatieve groep mensen uit het persoonlijke netwerk van de student (vrienden, kennissen, familie, medestudenten). Zij zullen gevraagd worden om de ontwikkelde simulatieomgeving uit te proberen, zodat observaties kunnen worden verzameld over de user experience en bruikbaarheid van de tool.
-De centrale onderzoeksvraag luidt: \item \colorbox{hoofdvraag}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Hoofdonderzoeksvraag:} ``In welke mate is de game-engine Unity geschikt om een webgebaseerde simulatie te ontwikkelen waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en toegankelijke manier kunnen oefenen met het gebruik ervan?''}}
+Dit onderzoek vertrekt vanuit de use case "het faciliteren van educatieve cybersecurity-workshops voor beginnende gebruikers zonder ervaring met wachtwoordmanagers". Binnen deze workshops ontbreekt momenteel een veilige, realistische en interactieve oefenomgeving waarin deelnemers praktisch kunnen leren omgaan met een wachtwoordmanager, zonder gebruik te maken van echte accounts of persoonsgegevens.
+De beoogde oplossing is een webgebaseerde simulatieomgeving die kan worden ingezet als ondersteunend hulpmiddel binnen deze workshops. 
+De simulatie bootst een fictieve omgeving na met een browser, websites en een wachtwoordmanager, waarin gebruikers handelingen uitvoeren als aanmaken van accounts, genereren en opslaan van wachtwoorden en het interpreteren van beveiligingsfeedback. Deze workshopcontext vormt de centrale casus van de bachelorproef en dient als uitgangspunt voor de requirementsanalyse, het ontwerp van de simulatie en de evaluatie van het proof-of-concept. 
+%Deze bachelorproef richt zich op gebruikers zonder ervaring met wachtwoordmanagers. Het testpubliek bestaat uit een representatieve groep mensen uit het persoonlijke netwerk van de student (vrienden, kennissen, familie, medestudenten). Zij zullen gevraagd worden om de ontwikkelde simulatieomgeving uit te proberen, zodat observaties kunnen worden verzameld over de user experience en bruikbaarheid van de tool.
+De centrale onderzoeksvraag luidt: \item \colorbox{hoofdvraag}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Hoofdonderzoeksvraag:} ``In welke mate is de game-engine Unity, in vergelijking met alternatieve webtechnologieën, geschikt om een webgebaseerde simulatie te ontwikkelen waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en toegankelijke manier kunnen oefenen met het gebruik ervan?''}}
 Deze hoofdvraag wordt opgesplitst in volgende deelonderzoeksvragen:
 
 
@@ -29,6 +32,7 @@ Deze hoofdvraag wordt opgesplitst in volgende deelonderzoeksvragen:
     \begin{enumerate}
         \item Welke functionele en niet-functionele requirements volgen hieruit voor een veilige webgebaseerde simulatieomgeving?
         \item In welke mate ondersteunt Unity (met WebGL-export) deze requirements op vlak van performantie, toegankelijkheid, UX en beveiliging?
+        \item Welke alternatieve technologieën bestaan er voor het bouwen van dergelijke simulaties en hoe verhouden ze zich tot Unity?
         \item Welke bestaande frameworks, libraries of workflows bestaan er binnen Unity voor het bouwen van simulaties, digitale trainingsomgevingen of “digital twins”?
         \item In welke mate zijn er Unity-assets, design patterns of template-scenes beschikbaar die kunnen worden hergebruikt voor het bouwen van een “fake computer” met fictieve browser en websites?
         \item Kan de simulatie generiek uitbreidbaar worden naar andere soorten cybersecurity-workshops, of moet elk scenario volledig vanaf nul ontwikkeld worden?
@@ -103,9 +107,10 @@ Het onderzoek wordt uitgevoerd in vier fasen, elk gericht op het beantwoorden va
     \item \textbf{Literatuurstudie (week 1-3):} \\
     In een eerste fase wordt een literatuurstudie uitgevoerd om bestaande kennis in kaart te brengen. Hierbij wordt onderzocht welke typen wachtwoordmanagers bestaan en welke info ze bieden, hoe beginnende gebruikers zonder ervaring omgaan met wachtwoordmanagers, welke drempels zij ervaren, welke risico's verbonden zijn aan het niet gebruiken van dergelijke beveiligingstools en welke toegankelijkheidsprincipes relevant zijn voor deze doelgroep. Deze inzichten vormen de basis voor de requirements-analyse.
     \item \textbf{Requirements-analyse (week 3-5):} \\
-    In deze fase wordt een requirements-analyse uitgevoerd. Hierbij worden bestaande leeromgevingen rond wachtwoordbeheer geanalyseerd om inzicht te krijgen in hun sterke punten, beperkingen en geschiktheid voor beginnende gebruikers. Op basis hiervan worden de noodzakelijke funtionele en niet-functionele requirements voor een veilige webgebaseerde simulatie opgesteld. Deze requirements zullen als referentie dienen voor de proof-of-concept.
+    In deze fase wordt een requirements-analyse uitgevoerd. Hierbij worden bestaande leeromgevingen rond wachtwoordbeheer geanalyseerd om inzicht te krijgen in hun sterke punten, beperkingen en geschiktheid voor beginnende gebruikers. Op basis hiervan worden de noodzakelijke functionele en niet-functionele requirements voor een veilige webgebaseerde simulatie opgesteld. Deze requirements zullen als referentie dienen voor de proof-of-concept.
     \item \textbf{Technische evaluatie van Unity (week 5-7):} \\
     In een derde fase wordt Unity geëvalueerd op technische haalbaarheid. Hierbij wordt onderzocht in welke mate Unity geschikt is voor webgebaseerde simulatie, specifiek gericht op performance binnen een WebGL-omgeving, toegankelijkheid, UX, beveiliging en ontwikkeltijd. Tevens wordt gekeken naar bestaande frameworks, libraries en design patterns binnen Unity die relevant zijn voor het bouwen van een "fake computer" met fictieve browser en websites. 
+    Daarnaast wordt Unity vergeleken met alternatieve webtechnologieën op basis van criteria zoals ontwikkelcomplexiteit, toegankelijkheid, performantie en geschiktheid voor interactieve workshopcontexten.
     \item \textbf{Proof-of-concept ontwikkeling (week 7-12):} \\
     In een vierde fase wordt er een proof-of-concept ontwikkeld. Deze simulatie, gebouwd in Unity met WebGL-export, bevat onder andere volgende functies:
     \begin{itemize}
@@ -113,7 +118,7 @@ Het onderzoek wordt uitgevoerd in vier fasen, elk gericht op het beantwoorden va
         \item feedback- en bewustwordingsmechanismen die gebruikers begeleiden bij veilig wachtwoordbeheer;
         \item een beveiligde sandboxomgeving waarin geen persoonlijke gegevens gebruikt worden.
     \end{itemize} 
-    Het proof-of-concept wordt getest door een kleine, representatieve groep beginnende gebruikers uit het netwerk van de student. het doel is om feedback te verzamelen over de gebruikservaring, bruikbaarheid en eventuele technische beperkingen van de simulatie.
+    Het proof-of-concept wordt getest door een kleine, representatieve groep beginnende gebruikers uit het netwerk van de student. Het doel is om feedback te verzamelen over de gebruikservaring, bruikbaarheid en eventuele technische beperkingen van de simulatie.
   \end{enumerate}
 
 \textbf{Deliverables per fase:}
@@ -132,14 +137,14 @@ Het onderzoek wordt uitgevoerd in vier fasen, elk gericht op het beantwoorden va
 %Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
 %Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
-In deze bachelorproef wordt een proof-of-concept ontwikkeld van een webgebasseerde simulatie waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en laagdrempelige manier kunnen oefenen met het gebruik van een wachtwoordmanager. 
+In deze bachelorproef wordt een proof-of-concept ontwikkeld van een webgebaseerde simulatie waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en laagdrempelige manier kunnen oefenen met het gebruik van een wachtwoordmanager. 
 Daarnaast wordt een technische evaluatie van Unity uitgevoerd op basis van meetbare criteria, waaronder performantie binnen een WebGL-omgeving, toegankelijkheid, gebruiksvriendelijkheid en ontwikkelcomplexiteit. 
 Verwacht wordt dat Unity geschikt is om een realistische simulatieomgeving te creëren maar dat WebGL-performance beperkingen kan opleggen op vlak van laadtijden en prestaties. Ook wordt verwacht dat Unity minder toegankelijkheidsopties biedt dan traditionele webtechnologieën.
 
 De meerwaarde van deze bachelorproef ligt in:
 \begin{itemize} 
-  \item het in kaart brengen van de technische haalbaarheid van Unity voor webgebaseerde educatieve simulaties; 
-  \item het ontwikkelen van een proof-of-concept dat aanbiedt hoe beginnende gebruikers veilig kunnen leren werken met wachtwoordmanagers in een risicovrije omgeving;
-  \item De resultaten kunnen bijdragen aan het ontwikkelen van beter toegankelijke leermiddelen en een verhoogde digitale bewustwording veilig wachtwoordbeheer.
+  \item Het in kaart brengen van de technische haalbaarheid van Unity voor webgebaseerde educatieve simulaties; 
+  \item Het ontwikkelen van een proof-of-concept dat aantoont hoe beginnende gebruikers veilig kunnen leren werken met wachtwoordmanagers in een risicovrije omgeving;
+  \item De resultaten kunnen bijdragen aan het ontwikkelen van beter toegankelijke leermiddelen en een verhoogde digitale bewustwording rond veilig wachtwoordbeheer.
 \end{itemize}
 
