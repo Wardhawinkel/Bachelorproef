@@ -5,46 +5,100 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
-
 \begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
+
+\item \colorbox{probleemstelling}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Concrete probleemstelling:} Digitale veiligheid is een noodzakelijke vaardigheid geworden in een samenleving waar technologische vooruitgang niet stilstaat. Wachtwoordmanagers zijn een belangrijk hulpmiddel om sterke, unieke wachtwoorden te genereren en beheren, wat belangrijk is voor het beschermen van persoonlijke digitale gegevens. 
+Uit een wereldwijde survey van \textcite{Bitwarden2022} blijkt dat 32\% van de respondenten wachtwoorden hergebruikt over meerdere sites, 55\% vertrouwen op geheugen voor wachtwoorden en slechts 34\% gebruiken een wachtwoordmanager \autocite{Bitwarden2022}. Hieruit blijkt dat er een aanzienlijke kloof bestaat tussen de kennis over veilig wachtwoordbeheer en het gebruik ervan.
+Deze bevindingen onderstrepen de nood aan een veilige, webgebaseerde oefenomgeving waarin beginnende gebruikers zonder risico kunnen leren werken met een wachtwoordmanager. Deze oefenomgeving moet gebruikers toelaten om handelingen uit te voeren zoals genereren van sterke wachtwoorden, opslaan van logins en het herkennen van beveiligingsprincipes. Dit allemaal zonder dat er echte accounts of persoonsgegevens gebruikt worden.}}
+Dit onderzoek vertrekt vanuit de use case "het faciliteren van educatieve cybersecurity-workshops voor beginnende gebruikers zonder ervaring met wachtwoordmanagers". Binnen deze workshops ontbreekt momenteel een veilige, realistische en interactieve oefenomgeving waarin deelnemers praktisch kunnen leren omgaan met een wachtwoordmanager, zonder gebruik te maken van echte accounts of persoonsgegevens.
+De beoogde oplossing is een webgebaseerde simulatieomgeving die kan worden ingezet als ondersteunend hulpmiddel binnen deze workshops. 
+De simulatie bootst een fictieve omgeving na met een browser, websites en een wachtwoordmanager, waarin gebruikers handelingen uitvoeren als aanmaken van accounts, genereren en opslaan van wachtwoorden en het interpreteren van beveiligingsfeedback. Deze workshopcontext vormt de centrale casus van de bachelorproef en dient als uitgangspunt voor de requirementsanalyse, het ontwerp van de simulatie en de evaluatie van het proof-of-concept. 
+De centrale onderzoeksvraag luidt: \item \colorbox{hoofdvraag}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Hoofdonderzoeksvraag:} ``In welke mate is de game-engine Unity, in vergelijking met alternatieve webtechnologieën, geschikt om een webgebaseerde simulatie te ontwikkelen waarmee beginnende gebruikers zonder ervaring met wachtwoordmanagers op een veilige en toegankelijke manier kunnen oefenen met het gebruik ervan?''}}
+Deze hoofdvraag wordt opgesplitst in volgende deelonderzoeksvragen:
+
+
+    \item \colorbox{deelvraagprobleem}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Probleemdomein:}
+    \begin{enumerate}
+        \item Welke verschillende typen wachtwoordmanagers bestaan er?
+        \item Welke drempels ervaren beginnende gebruikers bij het gebruik van wachtwoordmanagers?
+        \item Welke begeleidende informatie en tutorials bieden bestaande wachtwoordmanagers aan voor beginnende gebruikers?
+        \item Welke functionele, technische en didactische noden hebben beginnende gebruikers zonder ervaring met wachtwoordmanagers bij het aanleren van veilig wachtwoordbeheer?
+        \item Welke informatieve functies (bv. wachtwoordsterkte-indicatoren, waarschuwingen, security check-ups) bieden bestaande wachtwoordmanagers, en hoe dragen deze bij aan inzicht en gedragsverandering bij beginners?
+        \item Welke risico’s of beperkingen bestaan er in bestaande leeromgevingen voor wachtwoordbeheer?
+    \end{enumerate}}}
+    
+    \item \colorbox{deelvraagoplossing}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Oplossingsdomein:}
+    \begin{enumerate}
+        \item Welke functionele en niet-functionele requirements volgen hieruit voor een veilige webgebaseerde simulatieomgeving?
+        \item In welke mate ondersteunt Unity (met WebGL-export) deze requirements op vlak van performantie, toegankelijkheid, UX en beveiliging?
+        \item Welke alternatieve technologieën bestaan er voor het bouwen van dergelijke simulaties en hoe verhouden ze zich tot Unity?
+        \item Welke bestaande frameworks, libraries of workflows bestaan er binnen Unity voor het bouwen van simulaties, digitale trainingsomgevingen of “digital twins”?
+        \item In welke mate zijn er Unity-assets, design patterns of template-scenes beschikbaar die kunnen worden hergebruikt voor het bouwen van een “fake computer” met fictieve browser en websites?
+        \item Kan de simulatie generiek uitbreidbaar worden naar andere soorten cybersecurity-workshops, of moet elk scenario volledig vanaf nul ontwikkeld worden?
+        \item Welke ontwerpkeuzes zijn nodig om een werkend proof-of-concept te realiseren, en welke beperkingen komen hierbij naar voren?
+    \end{enumerate}}}
+
+
+  \item de onderzoeksdoelstelling
+\item \colorbox{doelstelling}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Onderzoeksdoelstelling:}De doelstelling van dit onderzoek bestaat uit twee delen. Enerzijds in kaart brengen aan welke functionele, technische en toegankelijkheidsvereisten een leeromgeving voor beginnende gebruikers moet voldoen. Anderzijds een proof-of-concept ontwikkelen en evalueren, waarmee de mogelijkheden en beperkingen van Unity voor dit soort educatieve toepassingen duidelijk worden gemaakt. Het eindresultaat moet ontwikkelaars inzicht geven in de haalbaarheid, gebruikerservaring en mogelijke beperkingen van dergelijke simulatie.}}
 \end{itemize}
 
-\section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
-\label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
 
-\section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
-\label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
 
-\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
-\label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
 
-\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
-\label{sec:opzet-bachelorproef}
 
-% Het is gebruikelijk aan het einde van de inleiding een overzicht te
-% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
-% die je kan aanvullen/aanpassen in functie van je eigen tekst.
 
-De rest van deze bachelorproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+
+
+
+
+% De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+
+% \begin{itemize}
+%   \item context, achtergrond
+%   \item afbakenen van het onderwerp
+%   \item verantwoording van het onderwerp, methodologie
+%   \item probleemstelling
+%   \item onderzoeksdoelstelling
+%   \item onderzoeksvraag
+%   \item \ldots
+% \end{itemize}
+
+% \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
+% \label{sec:probleemstelling}
+
+% Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+
+% \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
+% \label{sec:onderzoeksvraag}
+
+% Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+
+% \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
+% \label{sec:onderzoeksdoelstelling}
+
+% Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+
+% \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
+% \label{sec:opzet-bachelorproef}
+
+% % Het is gebruikelijk aan het einde van de inleiding een overzicht te
+% % geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
+% % die je kan aanvullen/aanpassen in functie van je eigen tekst.
+
+% De rest van deze bachelorproef is als volgt opgebouwd:
+
+% In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+
+% In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+
+% % TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+
+% In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
