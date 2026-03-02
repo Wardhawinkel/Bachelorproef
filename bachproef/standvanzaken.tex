@@ -28,7 +28,7 @@ Ook \textcite{Ray2021} geeft aan dat een gebrek aan vertrouwen een belangrijke d
 Bestaande wachtwoordmanagers gebruiken ondersteunende documentatie. Deze gaan over installatie van de tool, uitleg over beveiliging en visuele ondersteuning zoals video's of demo's.  
 Bitwarden biedt online documentatie aan met een checklist waarin gebruikers stapsgewijs uitgelegd krijgen hoe ze een account kunnen aanmaken, een masterwachtwoord kunnen instellen en hoe browserextensies kunnen worden geïnstalleerd. \autocite{Bitwarden}
 LastPass heeft een Get Started pagina waarin gebruikers stap voor stap leren hoe een account aan te maken, hoe LastPass browser extensie te installeren en in te loggen, hoe wachtwoorden en passkeys toe te voegen en hoe LastPass te gebruiken \autocite{LastPass2025}. Verder bieden ze ook interactieve live training aan voor nieuwe gebruikers. 
-Ook 1Password biedt een uitgebreide gids aan voor nieuwe gebruikers, ondersteund met een video waarin de belangrijkste functies van de wachtwoordmanager worden uitgelegd \autocite{1Password2025}.
+Ook 1Password biedt een uitgebreide gids aan voor nieuwe gebruikers, ondersteund met een video waarin de belangrijkste functies van de wachtwoordmanager worden uitgelegd \autocite{1Password}.
 Hoewel deze documentatie en tutorials nuttig kunnen zijn, is het onduidelijk of ze effectief zijn in het overbrengen van de nodige kennis en vaardigheden aan beginnende gebruikers en vooral of ze de drempels die beginnende gebruikers ervaren kunnen wegnemen.
 
 \subsection{Welke functionele, technische en didactische noden hebben beginnende gebruikers zonder ervaring met wachtwoordmanagers bij het aanleren van veilig wachtwoordbeheer?}
@@ -45,12 +45,43 @@ Kennis alleen is niet genoeg. \textcite{Pruemmer2025} stelt vast dat trainingen 
 \textcite{Sugatan2020} gebruikten in hun onderzoek een interactieve, verhalende leeromgeving waar gebruikers de kans kregen om beslissingen te nemen rond wachtwoordgedrag en vervolgens ook de gevolgen te zien. De onderzoekers stelden vast dat deze aanpak leidde tot een beter begrip, meer vertrouwen en een grotere bereidheid om zelf een wachtwoordmanager te gebruiken.
  Dit onderzoek onderstreept het potentieel van interactieve simulaties als een effectieve methode om beginnende gebruikers te trainen in veilig wachtwoordbeheer. Nog enkele aanbevelingen voor cybersecurity educatie, volgens \textcite{Geller2025}: mensen bang maken of beschamen is geen effectieve techniek en educatieve inhoud moet gericht, bruikbaar en uitvoerbaar zijn.
 
- Hoe moet een simulatie eruit zien:
- https://academic.oup.com/cybersecurity/article/5/1/tyz014/5681668?login=false&utm_source=chatgpt.com#190399223
-https://arxiv.org/pdf/1607.03417
-
-
  
+%  %To do
+% Hoe moet een simulatie eruit zien:
+% https://academic.oup.com/cybersecurity/article/5/1/tyz014/5681668?login=false&utm_source=chatgpt.com#190399223
+% https://arxiv.org/pdf/1607.03417
+% - Welke informatieve functies (bv. wachtwoordsterkte-indicatoren, waarschuwingen, security check-ups) bieden bestaande wachtwoordmanagers, en hoe dragen deze bij aan inzicht en gedragsverandering bij beginners?
+% sterkte-meter / LastPass bieden een beveiligingsdashboard dat een overzicht / 
+% - Welke risico’s of beperkingen bestaan er in bestaande leeromgevingen voor wachtwoordbeheer?
+% Schijnveiligheid (“false sense of security”), gebruikers kunnen denken dat ze veilig zijn omdat ze een wachtwoordmanager gebruiken, maar als ze zwakke wachtwoorden blijven gebruiken of hun masterwachtwoord niet goed beveiligen, kunnen ze nog steeds kwetsbaar zijn voor aanvallen.
+% Te veel focus op techniek, te weinig op gedrag
+% - Hoe gaan PM om met 2FA of biometrie (Android of IOS) => eventueel computer met fingerprint?
+% oorbeelden:1Password/Bitwarden/Dashlane/LastPass ondersteunen allemaal 2FA, maar de implementatie kan verschillen.
+% TOTP (Authenticator apps)
+% Je koppelt de manager aan:
+% Google Authenticator
+% Microsoft Authenticator
+
+% Elke login vereist dan een tijdelijke 6-cijferige code.
+
+% Hardware security keys (FIDO2 / WebAuthn)
+% Bijvoorbeeld:
+% Yubico (YubiKey)
+
+% Dit biedt sterke phishing-resistente beveiliging.
+% E-mail of push-notificaties
+
+% Sommige managers sturen een bevestigingsmail of push bij nieuw apparaat.
+% Sommige managers combineren wachtwoorden met two-factor-codes (TOTP) zodat je beide in dezelfde workflow hebt, wat het veiliger en eenvoudiger maakt.(bitwarden)
+% - Bestaat er info over hoe best mockup van dergelijk workshop maken
+% - Onderzoeken naar mechanisme hoe PM weet hoe file opslagen gelinkt aan username of wachtwoord
+% - Waarom PM wachtwoord invult maar username blank laat? => error
+% Veel sites missen correcte autocomplete-labels zoals autocomplete="username" of gebruiken dynamische login-formulieren waar wachtwoordmanagers moeite mee hebben. Dit kan ervoor zorgen dat de manager alleen het wachtwoordveld herkent, niet de gebruikersnaam.
+
+      
+        
+     
+
 
 
 
