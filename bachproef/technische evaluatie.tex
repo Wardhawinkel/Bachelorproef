@@ -1,0 +1,59 @@
+\chapter{Technische evaluatie van Unity}
+
+\section{Wat is Unity en waarvoor wordt het gebruikt?}
+
+Unity is een real-time game engine ontwikkeld door Unity Technologies waar 2D en 3D applicaties kunnen ontwikkeld worden \autocite{Unity}. 
+In de Unity Editor is het mogelijk om scènes, interactieve logica en gebruikersinterfaces te creëren en te implementeren. De codeertaal die gebruikt wordt is C\#. 
+
+\section{Waarom Unity?}
+
+Unity heeft een WebGL-bouwoptie waarmee het inhoud kan publiceren als JavaScript-programma's die gebruikmaken van HTML5-technologieën en de WebGL-rendering-API om Unity-content in een webbrowser uit te voeren \autocite{WebGL}.
+Dit geeft de mogelijkheid om een webgebaseerde simulatie te maken die toegankelijk is via een webbrowser, zonder dat de eindgebruiker software moet installeren. Het biedt ook de mogelijkheid om interactieve simulaties te bouwen met een grafische gebruikersinterface.
+Binnen Unity is het mogelijk om visuele elementen toe te voegen, namelijk sprites, dit zijn 2D-afbeeldingen die deel uitmaken van de bredere categorie van assets. In deze POC werd gekozen om heel de simulatie van nul te ontwerpen met toevoeging van enkele iconen uit de Google Material Icons \url{https://fonts.google.com/icons}.
+
+\subsection{Voordelen van Unity binnen dit project}
+
+Een belangrijk voordeel van Unity is het gebruiksvriendelijke UI-systeem. Het maakt het vrij eenvoudig om een canvas, panelen, buttons, tekst,... toe te voegen en ook meteen het resultaat te zien. Zo is het mogelijk om verschillende pagina's zoals emaillogin, webshoplogin, wachtwoordmanagerpaneel en tutorialpaneel aan te maken binnen één simulatie.
+Daarnaast biedt Unity ook ondersteuning voor C\#, wat het mogelijk maakt om logica te implementeren via scripts. Zo kunnen functionaliteiten als wachtwoorden opslaan, automatisch invullen, hash berekenen,... mogelijk gemaakt worden.
+Een ander voordeel is de mogelijkheid om een project te exporteren naar WebGL. Op deze manier kan de simulatie eenvoudig opgezet worden in een browser, wat ideaal is voor educatieve doeleinden. Bij het exporteren is er ook de mogelijkheid om voor een specifieke browser te kiezen (Microsoft Edge, Mozilla Firefox, Google Chrome,...) wat extra flexibileit biedt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.3\textheight]{Build_Profiles.png}
+    \caption{Build Profiles}
+    \label{fig:Build Profiles}
+\end{figure}
+
+\subsection{Beperkingen en uitdagingen}
+
+Ondanks bovenstaande voordelen zijn er ook enkele beperkingen. Unity is een game-engine, waardoor het minder geoptimaliseerd is voor webapplicaties. Dit resulteert in relatief grote buildbestanden en langere laadtijden bij het exporteren.
+Daarnaast vereiste het werken met UI-elementen (vooral panelen) extra configuratie, zoals het schalen voor verschillende schermgroottes.
+Ook het debuggen in WebGL bleek lastiger dan in klassieke webomgevingen omdat foutmeldingen minder gedetailleerd of minder eenvoudig te interpreteren waren.
+
+\subsection{Vergelijking met alternatieven}
+
+Alternatieven zoals CSS, Javascript en HTML hadden ook overwogen kunnen worden. Deze zijn beter geschikt voor webapplicatie en bieden snellere laadtijden dan Unity.
+Echter in deze context, waar de focus lag op het maken van een interactieve simulatie met begeleidende ondersteuning, bleek Unity de geschikte keuze. Deze biedt een omgeving aan waar visuele en logische componenten gecombineerd kunnen worden.
+
+\subsection{Conclusie}
+
+Samenvattend kan gesteld worden dat Unity het meest geschikt is voor het ontwikkelen van deze educatieve simulatie. Het aanbieden van een interactieve UI in combinatie met scripting maakt het mogelijk om deze leeromgeving te creëren.
+Voor toepassingen die eerder meer webgericht zijn, kunnen bovenstaande alternatieven meer geschikt zijn. Maar voor deze specifieke casus bood Unity een duidelijke meerwaarde.
+
+\section{Uitbreidbaarheid van de simulatie}
+
+Een belangrijke onderzoeksvraag binnen dit project is in welke mate de simulatie uitbreidbaar is naar andere cybersecurityscenario's.
+
+De huidige implementatie binnen Unity maakt gebruik van een modulaire structuur waarbij verschillende UI-componenten en scripts afzonderlijk functioneren. Hierdoor is het mogelijk om nieuwe scenario’s toe te voegen, zoals phishing-simulaties of tweefactorauthenticatie.
+
+Echter vereist het toevoegen van nieuwe scenario’s nog steeds manuele aanpassingen in zowel de gebruikersinterface als de onderliggende logica. De simulatie is dus gedeeltelijk uitbreidbaar, maar niet volledig generiek.
+
+Voor een volledig herbruikbaar systeem zou een meer abstracte architectuur nodig zijn, waarbij scenario’s configureerbaar zijn zonder aanpassing van de code.
+
+\section{Beschikbare Unity-assets en hergebruik}
+
+Binnen Unity bestaan verschillende assets en tools die hergebruik mogelijk maken, zoals UI-componenten, iconen en prefab-structuren. In dit project werd gebruik gemaakt van standaard UI-elementen (panelen, buttons, images) en externe iconen om een consistente interface op te bouwen.
+
+Er bestaan echter geen kant-en-klare oplossingen voor het simuleren van een volledige computeromgeving met browserfunctionaliteit. Hierdoor moest een groot deel van de simulatie manueel ontwikkeld worden.
+
+Dit toont aan dat Unity wel ondersteuning biedt voor hergebruik op componentniveau, maar dat specifieke simulaties zoals deze voornamelijk maatwerk vereisen.

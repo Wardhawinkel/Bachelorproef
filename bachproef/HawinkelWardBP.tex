@@ -10,8 +10,17 @@
 %   Valid entries are dbo, dbt, dgz, dit, dlo, dog, dsa, soa
 % - If you write your thesis in English (remark: only possible after getting
 %   explicit approval!), remove the option "dutch," or replace with "english".
-
+\usepackage{booktabs}   % mooie tabellen
+\usepackage{longtable}  % tabellen over meerdere pagina's
+\usepackage{array}
+\usepackage{tabularx}   % automatische kolombreedte
+\usepackage{float}
 \usepackage{lipsum} % For blind text, can be removed after adding actual content
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{forest}
+\usepackage{color}
 
 %% Pictures to include in the text can be put in the graphics/ folder
 \graphicspath{{../graphics/}}
@@ -52,8 +61,8 @@
 \author{Ward Hawinkel}
 \supervisor{Dhr. G. Bosteels}
 \cosupervisor{Dhr. T. Clauwaert}
-\title[Optionele ondertitel]%
-    {Titel van de bachelorproef}
+\title[]%
+    {Een webgebaseerde simulatie, gemaakt met Unity, voor beginnende gebruikers om te oefenen met een wachtwoordmanager}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
 \examperiod{1}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
@@ -139,6 +148,11 @@
 \input{inleiding}
 \input{standvanzaken}
 \input{methodologie}
+\input{requirementsanalyse}
+\input{technische evaluatie}
+\input{proof-of-concept}
+\input{resultaten}
+
 
 % Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
 % vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.

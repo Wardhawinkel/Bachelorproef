@@ -1,0 +1,326 @@
+\definecolor{headerblue}{RGB}{45,80,150}
+\definecolor{lightgray}{RGB}{245,247,250}
+
+\chapter{Requirements-analyse}
+\label{ch:requirements}
+
+\section{Inleiding}
+
+Dit document beschrijft de functionele en niet-functionele requirements voor een webgebaseerde simulatieomgeving gericht op beginnende gebruikers zonder ervaring met wachtwoordmanagers. De requirements zijn opgesteld op basis van de literatuurstudie en een analyse van bestaande leeromgevingen.
+Het doel van de simulatie is gebruikers op een veilige, toegankelijke en educatieve manier kennis te laten maken met het gebruik van een wachtwoordmanager. Hierbij wordt vermeden dat gebruikers eigen persoonlijke gegevens of accounts gebruiken. In plaats daarvan maakt de simulatie gebruik van fictieve data binnen een sandboxomgeving.
+
+\section{Vergelijking bestaande leeromgevingen}
+
+In deze fase werden bestaande tools en leeromgevingen rond wachtwoordbeheer geanalyseerd. De focus, tijdens het vergelijken, lag op bruikbaarheid voor beginnende gebruikers, educatieve waarde en technische beperkingen.
+
+\subsection{Geanalyseerde platformen}
+
+% \begin{table}[H]
+% \centering
+% \renewcommand{\arraystretch}{1.3}
+
+% \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X X X}
+% \rowcolor{headerblue}
+% \textcolor{white}{\textbf{Platform}} &
+% \textcolor{white}{\textbf{Sterke punten}} &
+% \textcolor{white}{\textbf{Beperkingen}} \\
+
+% \rowcolor{lightgray}
+% LastPass (gratis versie) &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Browserintegratie
+% \item Wachtwoord\-generator
+% \item Korte demo’s met uitleg
+% \end{itemize}
+% &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Vereist echte accountdata
+% \item Geen sandboxomgeving
+% \item Beperkte gratis functionaliteit
+% \end{itemize}
+% \\
+
+% Bitwarden (open source) &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Uitgebreide guide met demo’s
+% \item Gratis
+% \item Wachtwoordgenerator
+% \item Self-hosting mogelijk
+% \item Toont hoe je sterke wachtwoorden maakt
+% \end{itemize}
+% &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Vereist echte accountdata
+% \item Geen sandboxomgeving
+% \item Technische setup
+% \item Weinig begeleiding voor nieuwe gebruikers
+% \end{itemize}
+% \\
+
+% Google Wachtwoordbeheer &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Geïntegreerd in browser
+% \item Laagdrempelig gebruik
+% \item Detectie van zwakke of hergebruikte wachtwoorden
+% \end{itemize}
+% &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Vereist echte accountdata
+% \item Geen sandboxomgeving
+% \item Geen educatief karakter
+% \item Geen bewustwording rond wachtwoordveiligheid
+% \end{itemize}
+% \\
+
+% 1Password &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Dubbele laag beveiliging (account + secret key)
+% \item Wachtwoordgenerator
+% \item Opslag voor documenten en creditcards
+% \item Educatieve uitleg
+% \end{itemize}
+% &
+% \begin{itemize}\setlength\itemsep{0pt}
+% \item Vereist echte accountdata
+% \item Geen sandboxomgeving
+% \item Gratis trial, daarna betalend
+% \item Geen self-hosting mogelijk
+% \end{itemize}
+% \\
+
+% \end{tabularx}
+
+% \caption{Geanalyseerde wachtwoordmanagers}
+% \end{table}
+
+\begin{table}[H]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Platform} & \textbf{Sterke punten} & \textbf{Beperkingen} \\
+\midrule
+
+LastPass (gratis versie) &
+\begin{itemize}[leftmargin=*, nosep]
+\item Browserintegratie
+\item Wachtwoordgenerator
+\item Korte demo’s met uitleg
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, nosep]
+\item Vereist echte accountdata
+\item Geen sandboxomgeving
+\item Beperkte gratis functionaliteit
+\end{itemize}
+\\
+
+Bitwarden (open source) &
+\begin{itemize}[leftmargin=*, nosep]
+\item Uitgebreide guide met demo’s
+\item Gratis
+\item Wachtwoordgenerator
+\item Self-hosting mogelijk
+\item Toont hoe je sterke wachtwoorden maakt
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, nosep]
+\item Vereist echte accountdata
+\item Geen sandboxomgeving
+\item Technische setup
+\item Weinig begeleiding voor nieuwe gebruikers
+\end{itemize}
+\\
+
+Google Wachtwoordbeheer &
+\begin{itemize}[leftmargin=*, nosep]
+\item Geïntegreerd in browser
+\item Laagdrempelig gebruik
+\item Detectie van zwakke of hergebruikte wachtwoorden
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, nosep]
+\item Vereist echte accountdata
+\item Geen sandboxomgeving
+\item Geen educatief karakter
+\item Geen bewustwording rond wachtwoordveiligheid
+\end{itemize}
+\\
+
+1Password &
+\begin{itemize}[leftmargin=*, nosep]
+\item Dubbele laag beveiliging (account + secret key)
+\item Wachtwoordgenerator
+\item Opslag voor documenten en creditcards
+\item Educatieve uitleg
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*, nosep]
+\item Vereist echte accountdata
+\item Geen sandboxomgeving
+\item Gratis trial, daarna betalend
+\item Geen self-hosting mogelijk
+\end{itemize}
+\\
+
+\bottomrule
+\end{tabularx}
+\caption{Geanalyseerde wachtwoordmanagers}
+\end{table}
+
+\subsection{Bevindingen}
+Uit de analyse blijkt dat geen van de onderzochte platformen volledig voldoet aan de noden van de doelgroep. De voornaamste tekortkomingen zijn:
+
+\begin{itemize}
+\item Gebrek aan een veilige sandboxomgeving zonder echte persoonsgegevens
+\item Onvoldoende begeleiding en feedback voor gebruikers zonder technische achtergrond
+\item Geen interactieve simulatie van een realistische computeromgeving
+\item Beperkte aandacht voor bewustwording rond zwakke en hergebruikte wachtwoorden
+\end{itemize}
+
+\subsection{Implicaties voor het ontwerp}
+
+Op basis van de analyse van bestaande platformen kunnen enkele belangrijke ontwerpkeuzes afgeleid worden voor de ontwikkeling van de simulatieomgeving.
+
+Ten eerste blijkt het ontbreken van een veilige sandboxomgeving een cruciale tekortkoming. Daarom moet de simulatie volledig werken met fictieve data en losstaan van echte accounts of externe systemen.
+
+Daarnaast tonen de resultaten aan dat bestaande oplossingen onvoldoende begeleiding bieden voor beginnende gebruikers. Dit impliceert dat de simulatie moet voorzien in stap-voor-stap instructies, visuele ondersteuning en duidelijke feedback bij fouten.
+
+Verder is er nood aan een realistische maar vereenvoudigde gebruikersomgeving. De simulatie moet de werking van een wachtwoordmanager nabootsen zonder de complexiteit van echte systemen volledig over te nemen.
+
+Tot slot moet de simulatie inzetten op bewustwording, bijvoorbeeld door het tonen van feedback bij zwakke wachtwoorden en het visualiseren van beveiligingsconcepten zoals hashing.
+
+\section{Functionele requirements}
+De functionele requirements beschrijven wat de simulatie moet kunnen doen vanuit het perspectief van de gebruiker. Ze zijn opgesteld op basis van de vastgestelde noden van de doelgroep en de tekortkomingen in bestaande oplossingen.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Naam} & \textbf{Omschrijving} \\
+\midrule
+
+Fictief account aanmaken & De gebruiker kan fictieve accounts aanmaken zonder echte persoonsgegevens. \\
+
+Wachtwoord genereren & De simulatie genereert sterke wachtwoorden op basis van criteria. \\
+
+Wachtwoord opslaan & Wachtwoorden worden opgeslagen in een gesimuleerde kluis. \\
+
+Wachtwoord ophalen & Gebruiker kan opgeslagen wachtwoorden gebruiken om in te loggen. \\
+
+Wachtwoordsterkte evalueren & Real-time feedback over sterkte van wachtwoorden. \\
+
+Fictieve browseromgeving & Simulatie bevat een realistische browseromgeving. \\
+
+Stap-voor-stap begeleiding & Duidelijke instructies zonder technisch jargon. \\
+
+Feedback bij fouten & Uitleg bij onveilige keuzes. \\
+
+Educatieve tips & Tips over veilig wachtwoordgebruik. \\
+
+\bottomrule
+\end{tabularx}
+\caption{Functionele requirements}
+\end{table}
+
+\section{Niet-Functionele requirements}
+Niet-functionele requirements beschrijven hoe het systeem de functionele vereisten moet uitvoeren of hoe ze er moeten uitzien. Ze zijn essentieel om de gebruikservaring, veiligheid en toegankelijkheid van de simulatie te garanderen.
+
+\subsection{Toegankelijkheid}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Naam} & \textbf{Omschrijving} \\
+\midrule
+
+Taalgebruik & Begrijpelijk Nederlands zonder technisch jargon. \\
+
+Responsiviteit & Werkt op desktop en mobiel. \\
+
+Geen installatie & Volledig webgebaseerd. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Beveiliging \& privacy}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Naam} & \textbf{Omschrijving} \\
+\midrule
+
+Geen echte data & De simulatie slaat geen echte persoonsgegevens of echte wachtwoorden op. Alle gebruikte data zijn fictief. \\
+
+Sandbox-isolatie & De simulatieomgeving is volledig geïsoleerd van het echte internet. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Bruikbaarheid-UX}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Naam} & \textbf{Omschrijving} \\
+\midrule
+
+Leercurve & Een gebruiker zonder enige voorkennis moet de simulatie zelfstandig kunnen doorlopen binnen 30 minuten. \\
+
+Visuele consistentie & De gebruikersinterface volgt een consistent design met visuele elementen (knoppen, iconen, kleurgebruik). \\
+
+Foutpreventie & De simulatie voorkomt dat gebruikers vastlopen door duidelijke aanwijzingen en begeleidende instructies. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Use-case analyse}
+Om de interactie tussen de gebruiker en de simulatieomgeving duidelijk te maken werden verschillende use-cases gedefinieerd. Deze beschrijven welke actie de gebruiker kan uitvoeren binnen de sandboxomgeving.
+
+\subsection{Actor}
+De primaire actor is de gebruiker, zonder voorkennis van wachtwoordmanagers die via de simulatie leert hoe wachtwoordbeheer werkt.
+
+\subsection{User stories}
+In onderstaande tabel is de kolom prioriteit bewust weggelaten omdat alle user stories een must zijn.
+
+\begin{table}[H]
+\footnotesize
+\centering
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\textbf{Titel} & \textbf{User Story} & \textbf{Acceptatiecriteria}\\
+\midrule
+
+Simulatie starten & Als beginnende gebruiker zonder voorkennis van wachtwoordmanagers wil ik de simulatie eenvoudig kunnen starten zodat ik meteen kan beginnen met leren. & Gegeven dat de gebruiker de applicatie opent Wanneer de webpagina geladen is Dan wordt de simulatie correct getoond  \\
+
+Fictief account aanmaken & Als beginnende gebruiker wil ik een fictief account aanmaken zodat ik veilig kan oefenen zonder echte gegevens te gebruiken & Gegeven dat de gebruiker zich in de simulatie begint Wanneer hij een account aanmaakt Dan wordt dit account opgeslagen in wachtwoordkluis  \\
+
+Wachtwoord genereren & Als beginnende gebruiken wil ik een sterk wachtwoord kunnen genereren zodat ik begrijp hoe veilige wachtwoorden eruitzien & Gegeven dat de gebruiker een wachtwoord nodig heeft Wanneer hij de generator gebruikt Dan wordt een sterk wachtwoord voorgesteld  \\
+
+Wachtwoord opslaan & Als beginnende gebruiker wil ik mijn wachtwoord kunnen opslaan in de kluis zodat ik weet hoe wachtwoordmanagers werken & Gegeven dat de gebruiker een wachtwoord heeft Wanneer hij dit opslaat Dan wordt het wachtwoord correct opgeslagen in de kluis  \\
+
+Wachtwoord ophalen en gebruiken & Als beginnende gebruiker wil ik mijn opgeslagen wachtwoord kunnen gebruiken om in te loggen zodat ik ervaar hoe automatisch invullen werkt & Gegeven dat de gebruiker een opgeslagen wachtwoord heeft Wanneer de gebruiker inlogt Dan wordt het wachtwoord automatisch ingevuld  \\
+
+Feedback ontvangen & Als beginnende gebruiker wil ik feedback krijgen bij het invullen van zwakke of hergebruikte wachtwoorden zodat ik mijn fouten kan verbeteren & Gegeven dat de gebruiker een zwak wachtwoord invoert Wanneer dit wordt gedetecteerd Dan krijgt de gebruiker duidelijke feedback  \\
+
+Educatieve tips bekijken & Als beginnende gebruik wil ik tips en uitleg over veilig wachtwoordbeheer en over de werking van een wachtwoordmanager zodat ik mijn kennis en vaardigheden kan uitbreiden & Gegeven dat de gebruiker de simulatie gebruikt Wanneer hij de simulatie doorloopt Dan krijgt hij relevante tips en uitleg  \\
+
+
+\bottomrule
+\end{tabularx}
+\caption{User stories}
+\end{table}
+
+\section{Conclusie}
+De analyse van bestaande oplossingen toont aan dat huidige wachtwoordmanagers voornamelijk gericht zijn op praktisch gebruik maar weinig ondersteuning en transparantie bieden voor beginnende gebruikers. Er ontbreekt een veilige omgeving waarin men zonder risico kan experimenteren met wachtwoordbeheer.
+Op basis van deze bevindingen werdel zowel funtionele als niet-functionele requirements opgesteld. Deze benadrukken het belang van gebruiksvriendelijkheid, begeleiding, veiligheid en realisme.
+Ze vormen de basis voor de verdere technische uitwerking en de ontwikkeling van het proof-of-concept in de volgende hoofdstukken.

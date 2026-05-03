@@ -5,22 +5,40 @@
 
 Het belang van veilig wachtwoordbeheer wordt in de literatuur vaak benadrukt. Gebruikers die hun wachtwoorden hergebruiken over meerdere sites lopen een verhoogd risico op cyberaanvallen \autocite{Gaw2006}. Studies tonen bovendien aan dat het gebruik van wachtwoordmanagers niet langer een luxe is, maar een noodzaak voor het behouden van digitale veiligheid \autocite{CMU2025}.
 
-\subsection{Hoe werkt een wachtwoordmanager?}
-Wachtwoordmanagers beheren en slaan wachtwoorden op in een locatie, toegankelijk door één masterwachtwoord \autocite{Alkaldi2019}. Ze gebruiken geencrypteerde methoden om de wachtwoorden te beschermen. Hierdoor hoeven gebruikers maar één wachtwoord te onthouden. Verder ondersteunen ze gebruikers door voor elke site een uniek, sterk wachtwoord te creëren en op te slaan. Dit verminderd het hergebruiken van een wachtwoord door gebruikers.
-Moderne wachtwoordmanagers gebruiken ``zero-knowledge''architectuur. Dit wil zeggen dat providers niet aan de gebruikerswachtwoorden kunnen, zelfs als ze zouden willen of als ze zouden gehackt worden. De reden hiervoor is dat alle wachtwoorden geencrypteerd worden voor ze verzonden worden naar de providerservers \autocite{RandomKeygen}. De wachtwoordkluis wordt geencrypteerd met AES-256, de encryptie key die wereldwijd gebruikt wordt om data te beveiligen. Wanneer een wachtwoordmanager gehackt wordt zullen aanvallers nog steeds niet de wachtwoorden kunnen zien omdat elke kluis het masterwachtwoord nodig hebben om de wachtwoorden te ontsleutelen.
-Anders dan wachtwoorden worden username & e-mail in plaintext, niet gecodeerde leesbare tekst, in de databank opgeslagen. 
+\section{Hoe werkt een wachtwoordmanager?}
+
+Wachtwoordmanagers beheren en slaan wachtwoorden op in een locatie, toegankelijk door één masterwachtwoord \autocite{Alkaldi2019}. Ze gebruiken geëncrypteerde methoden om de wachtwoorden te beschermen. Hierdoor hoeven gebruikers maar één wachtwoord (het masterwachtwoord) te onthouden. Verder ondersteunen ze gebruikers door voor elke site een uniek, sterk wachtwoord te creëren en op te slaan. Dit vermindert het hergebruiken van een wachtwoord door gebruikers.
+Moderne wachtwoordmanagers gebruiken ``zero-knowledge''architectuur. Dit wil zeggen dat providers niet aan de gebruikerswachtwoorden kunnen, zelfs als ze zouden willen of als ze gehackt zouden worden. De reden hiervoor is dat alle wachtwoorden geëncrypteerd worden voordat ze verzonden worden naar de providerservers \autocite{RandomKeygen}. De wachtwoordkluis wordt geëncrypteerd met AES-256, de encryptie key die wereldwijd gebruikt wordt om data te beveiligen. Wanneer een wachtwoordmanager gehackt wordt zullen aanvallers nog steeds niet de wachtwoorden kunnen zien omdat elke kluis het masterwachtwoord nodig heeft om de wachtwoorden te ontsleutelen.
+
+\subsection{Hashing en wachtwoord salting}
+
+Anders dan wachtwoorden worden username \& e-mail in plaintext, niet gecodeerde leesbare tekst, in de databank opgeslagen. 
 Bij het aanmaken van een account wordt het masterwachtwoord niet letterlijk zo opgeslagen. Het gaat door een hashing proces. Wachtwoordmanagers, zoals bijvoorbeeld Bitwarden, gebruikt het PBKDF2 algoritme om tijdens de hashing een salt (username) toe te voegen aan het masterwachtwoord en zo een fixed-lenth hash te creëren (HMAC-SHA-256 algoritme). Deze hash wordt dan opgeslagen. Telkens wanneer een gebruiker opnieuw inlogt, wordt dit proces herhaald en wordt de gecreërde hash vergeleken met de opgeslagen hash. Bij een match wordt de gebruiker ingelogd.
 Het hele hash proces zorgt ervoor dat hackers bij elke gok heel veel tijd en rekenkracht verbruiken en dat een brute-force aanval praktisch onhaalbaar wordt \autocite{Bitwarden}.
 
-De meeste wachtwoordmanagers ondersteunen ook tweefactorauthenticatie (2FA). Dit is een aanvulling op het masterwachtwoord en zorgt voor een extra beveiligingslaag bij het inloggen. Na het invullen van email en masterwachtwoord zal er nog een extra stap nodig zijn om in te loggen. Er bestaan verschillende 2FA methodes: biometrische verificatie zoals vingerafdruk of gezichtsherkenning, fysieke sleutel (Yubikey), sms/email-codes, eenmalige toegangscodes (TOTP) op authenticator app (bv Bitwarden/LastPass Authenticator-app) \autocite{LastPass2025}.
-Yubikey is een fysieke beveiligingssleutel die past in de USB poort van een pc of laptop. Deze kan dan geregistreerd worden in de opties van de wachtwoordmanager. Telkens wanneer een gebruiker inlogt zal deze, naast het masterwachtwoord, ook de Yubikey moeten insteken en via de sensor moeten aangeven dat deze de geregistreerde Yubikey is \autocite{YubiKey}. 
-Een andere mogelijkheid is om de authenticator app te downloaden (Bitwarden/LastPass authenticator) en deze te koppelen aan het wachtwoordmanager account. Na het inloggen met email en masterwachtwoord zal er gevraagd worden naar een 6-cijferige code (TOTP). Deze temporary one-time password code zal verschijnen in de authenticator-app en wordt elke 30 seconden vernieuwd \autocite{Bitwarden2FA}
-\begin{figure}[h]
+Volgens \textcite{Tamosaityte2025} is een sterk wachtwoord verzinnen is een goede start maar nog niet voldoende. Zoals hierboven beschreven worden wachtwoorden niet als gewone tekst opgeslagen maar worden ze door het hashing proces opgeslagen als een reeks van tekens. Het probleem hierbij is dat dezelfde wachtwoorden ook exact dezelfde hash krijgen. Dit maakt het voor hackers gemakkelijker om deze te achterhalen wanneer ze werken met een lijst van gestolen wachtwoorden. Om dit tegen te gaan wordt er bij het opslagen van wachtwoorden in het hashing proces gebruik gemaakt van wachtwoord salting.
+Bij wachtwoord salting wordt er een willekeurig deel gegevens toegevoegd aan het wachtwoord alvorens deze door het hashing proces gaat. Dit willekeurig deel is telkens verschillend voor elke gebruiker. Dit maakt dat elke hash uniek wordt en dat dus elke wachtwoord een unieke hash krijgt, ook al zijn de wachtwoorden dezelfde.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{TOTP.jpeg}
+    \includegraphics[height=0.4\textheight]{hashing.jpg}
+    \caption{Hashing proces met wachtwoord salt}
+    \label{fig:Hashing}
+\end{figure}
+
+\subsection{Tweefactorauthenticatie}
+
+De meeste wachtwoordmanagers ondersteunen ook tweefactorauthenticatie (2FA). Dit is een aanvulling op het masterwachtwoord en zorgt voor een extra beveiligingslaag bij het inloggen. Na het invullen van email en masterwachtwoord zal er nog een extra stap nodig zijn om in te loggen. Er bestaan verschillende 2FA methodes: biometrische verificatie zoals vingerafdruk of gezichtsherkenning, fysieke sleutel (Yubikey), sms/email-codes, eenmalige toegangscodes (TOTP) op authenticator app (bv Bitwarden/LastPass Authenticator-app) \autocite{LastPass2025}.
+Yubikey is een fysieke beveiligingssleutel die past in de USB poort van een pc of laptop. Deze kan dan geregistreerd worden in de opties van de wachtwoordmanager. Telkens wanneer een gebruiker inlogt zal deze, naast het masterwachtwoord, ook de Yubikey moeten insteken en via de sensor moeten aangeven dat deze de geregistreerde Yubikey is \autocite{Yubikey}. 
+Een andere mogelijkheid is om de authenticator app te downloaden (Bitwarden/LastPass authenticator) en deze te koppelen aan het wachtwoordmanager account. Na het inloggen met email en masterwachtwoord zal er gevraagd worden naar een 6-cijferige code (TOTP). Deze temporary one-time password code zal verschijnen in de authenticator-app en wordt elke 30 seconden vernieuwd \autocite{Bitwarden2FA}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.4\textheight]{TOTP.jpeg}
     \caption{Voorbeeld van TOTP}
     \label{fig:TOTP}
 \end{figure}
+
 Wanneer iemand het masterwachtwoord kent zal de extra login stap ervoor zorgen dat deze persoon niet in de gebruikerskluis geraakt. Belangrijk is dat de gebruiker zowel het masterwachtwoord weet als de extra login methode kan uitvoeren.  
 Wat als de gebruiker zijn smartphone (of Yubikey) verloren geraakt? Het is mogelijk om bij het instellen van 2FA in opties van wachtwoordmanager een recovery code aan te vragen. Deze eenmalige code dient de gebruiker ergens op te slaan of af te printen en te bewaren op een veilige plek. Deze code kan dan ingevuld worden in plaats van de 2FA methode en zo geraakt de gebruiker wel in de kluis \autocite{Bitwarden}. 
 
@@ -36,11 +54,13 @@ Desktopgebaseerde wachtwoordmanagers worden lokaal op de computer geïnstalleerd
 Ondanks de beschikbaarheid van deze tools blijft de adoptie bij beginnende gebruikers beperkt.
 
 \section{Drempels voor beginnende gebruikers}
+
 Ondanks de voordelen blijkt uit onderzoek dat veel beginnende gebruikers terughoudend zijn om wachtwoordmanagers te gebruiken. Volgens \textcite{Pearman2019} hebben gebruikers vaak onvoldoende vertrouwen in de beveiliging van deze tools en ervaren de werking ervan als complex. Daarnaast weten sommige gebruikers niet dat er betere opties bestaan dan het simpelweg onthouden van wachtwoorden of het opschrijven ervan.  
 Uit onderzoek van \textcite{Fagan2017} blijkt dat 45,9\% van de niet-gebruikers aangeeft zich zorgen te maken over de veiligheid van wachtwoordmanagers. Ze geven aan bang te zijn dat een wachtwoordmanager gecompromitteerd kan worden en vinden het daarom risicovol om al hun wachtwoorden op één centrale locatie op te slaan. Een andere 42,3\% van de niet-gebruikers geeft aan geen behoefte te hebben aan het gebruik van een wachtwoordmanager. Dit kan wijzen op een beperkte kennis van de veiligheidsrisico's en/of voordelen van dergelijke tools.
 Ook \textcite{Ray2021} geeft aan dat een gebrek aan vertrouwen een belangrijke drempel vormt en dat niet-gebruikers vaak de voorkeur geven aan het zelf beheren van hun wachtwoorden, in plaats van dit toe te vertrouwen aan een wachtwoordmanager. 
 
 \section{Welke begeleidende informatie en tutorials bieden bestaande wachtwoordmanagers aan voor beginnende gebruikers?}
+
 Bestaande wachtwoordmanagers gebruiken ondersteunende documentatie. Deze gaan over installatie van de tool, uitleg over beveiliging en visuele ondersteuning zoals video's of demo's.  
 Bitwarden biedt online documentatie aan met een checklist waarin gebruikers stapsgewijs uitgelegd krijgen hoe ze een account kunnen aanmaken, een masterwachtwoord kunnen instellen en hoe browserextensies kunnen worden geïnstalleerd. \autocite{Bitwarden}
 LastPass heeft een Get Started pagina waarin gebruikers stap voor stap leren hoe een account aan te maken, hoe LastPass browser extensie te installeren en in te loggen, hoe wachtwoorden en passkeys toe te voegen en hoe LastPass te gebruiken \autocite{LastPass2025}. Verder bieden ze ook interactieve live training aan voor nieuwe gebruikers. 
@@ -48,16 +68,19 @@ Ook 1Password biedt een uitgebreide gids aan voor nieuwe gebruikers, ondersteund
 Hoewel deze documentatie en tutorials nuttig kunnen zijn, is het onduidelijk of ze effectief zijn in het overbrengen van de nodige kennis en vaardigheden aan beginnende gebruikers en vooral of ze de drempels die beginnende gebruikers ervaren kunnen wegnemen.
 
 \section{Welke functionele, technische en didactische noden hebben beginnende gebruikers zonder ervaring met wachtwoordmanagers bij het aanleren van veilig wachtwoordbeheer?}
+
 Uit een studie van \textcite{Chaudhary2019} blijkt dat leerbaarheid, d.w.z gebruikers helpen om te leren hoe een wachtwoordmanager te gebruiken, een belangrijk aandachtspunt is. Beginnende gebruikers hebben niet de juiste mentale modellen voor de functies van deze tools of de mate van veiligheid die de wachtwoordmanager biedt. Door dit aan te leren kan het de acceptatie van deze tools bevorderen. Het vergroten van het begrip en bewustzijn van gebruikers kan een positief effect hebben op het gebruik. Andere onderzoeksresultaten uit deze studie toonden aan dat training en permanente educatie ook bijdrage tot een groter bewustzijn van de voordelen van wachtwoordmanagers.
 Onderzoek van \textcite{Cabarcos2025} geeft aan dat zichtbaarheid, duidelijkheid en timing van beveiligingsmeldingen een rol kunnen spelen bij gebrek aan betrokkenheid van gebruikers. Ze suggereren dat toekomstige ontwerpen zich moeten richten op het helpen bij het aanmaken van primaire wachtwoorden, hierbij de nadruk leggen op het gevaar van hergebruiken van wachtwoorden. Anderzijds zouden ze nudges, een subtiele methode om gedrag van mensen te veranderen, moeten integregeren die gebruikers aanmoedigen om zwakke wachtwoorden onmiddellijk te veranderen bij het invoeren ervan in een wachtwoordmanager. Een laatste punt is het verbeteren van de presentatie van waarschuwingen over de veiligheid van wachtwoorden. Dit moet ervoor zorgen dat gebruikers deze opvolgen en niet negeren.
 \textcite{Alodhyani2020} stelt vast dat vertrouwen het grootste probleem is van het niet gebruiken van een wachtwoordmanager. Andere redenen zijn transparantie en veiligheid. Een minderheid van de niet-gebruikers uit deze studie geeft aan dat bruikbaarheid de reden is voor het niet gebruiken van deze tool. Niet-gebruikers geven aan dat ze de verkoper van wachtwoordmanagers niet vertrouwen in het opslaan van hun wachtwoorden. Ook het gebrek aan transparantie is een probleem, aangezien velen niet weten waar de wachtwoorden opgeslagen worden en hoe beheerders deze verwerken. In het geval van veiligheid, geven ze aan dat alle wachtwoorden gelekt kunnen worden bij een aanval op de database. 
 Hieruit blijkt dat niet-gebruikers vooral nood hebben aan meer duidelijkheid, transparantie over hoe een wachtwoordmanager werkt, waarom ze deze zouden moeten gebruiken en waarom het een veilige optie is. 
 
 \section{Beperkingen van traditionele leermethoden}
+
 Binnen security awareness wordt steeds duidelijker dat traditionele methoden, zoals tekstuele handleidingen of tutorials, niet voldoende zijn om gebruikers effectief te trainen in veilig wachtwoordbeheer. Een belangrijke oorzaak is dat gebruikers wel advies krijgen over veilig gedrag, maar dit niet in de praktijk kunnen brengen zonder risico op fouten of datalekken \autocite{Sugatan2020}. 
 Kennis alleen is niet genoeg. \textcite{Pruemmer2025} stelt vast dat trainingen kennis en attitudes van eindgebruikers verhoogt maar dat verandering in gedrag minimaal geobserveerd kunnen worden. Ze zijn beide een voorwaarde om gedrag te veranderen maar niet noodzakelijk voldoende \autocite{Bada2015}. 
 
 \section{Interactieve leeromgevingen als oplossing}
+
 \textcite{Sugatan2020} gebruikten in hun onderzoek een interactieve, verhalende leeromgeving waar gebruikers de kans kregen om beslissingen te nemen rond wachtwoordgedrag en vervolgens ook de gevolgen te zien. De onderzoekers stelden vast dat deze aanpak leidde tot een beter begrip, meer vertrouwen en een grotere bereidheid om zelf een wachtwoordmanager te gebruiken.
  Dit onderzoek onderstreept het potentieel van interactieve simulaties als een effectieve methode om beginnende gebruikers te trainen in veilig wachtwoordbeheer. Nog enkele aanbevelingen voor cybersecurity educatie, volgens \textcite{Geller2025}: mensen bang maken of beschamen is geen effectieve techniek en educatieve inhoud moet gericht, bruikbaar en uitvoerbaar zijn.
 

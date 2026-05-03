@@ -1,0 +1,129 @@
+\chapter{Proof-of-concept}
+
+Het doel van de POC is enerzijds om een technische evaluatie te maken van Unity in het maken van een webgebaseerde simulatie en anderzijds om deelnemers van de tutorial te laten kennismaken met het gebruik van een wachtwoordmanager in een veilige oefenomgeving. Uit de literatuurstudie blijkt dat vooral vertrouwen in een wachtwoordmanager en geen of onvoldoende kennis hebben van deze tool, de grootste drempel zijn voor beginnende gebruikers.
+In de tutorial wordt dan ook getracht om het vertrouwen van de beginnende gebruiker te vergroten door de werking op een zo eenvoudig mogelijk manier te tonen maar ook door tips en info te geven over veilig wachtwoordbeheer en waarom dit zo belangrijk is. Er wordt geprobeerd om ondanks te terughoudendheid over de veiligheid van een wachtwoordmanager de gebruiker te overtuigen dat het gebruik van dergelijke tools veiliger en vaak ook gemakkelijker zijn dan zelf wachtwoorden te creëren en te onthouden.
+Want uit de literatuurstudie blijkt dan ook dat dit leidt tot het hergebruiken van dezelfde (zwakke) wachtwoorden. Diensten zoals ``Have I Been Pwned'' \url{https://haveibeenpwned.com/} tonen aan dat gebruikersgegevens frequent voorkomen in gelekte databanken. Gebruikers kunnen op deze site hun emailadres ingeven om te checken of ze mogelijk risico lopen doordat één van zijn of haar online accounts is gehackt tijdens een datalek \autocite{Hunt}.  
+Dit onderstreept het risico van wachtwoordhergebruik en het belang van gebruikers bewust te maken van de gevolgen van onveilig wachtwoordbeheer.
+
+\section{Opstart POC}
+
+Uit de resultaten van de literatuurstudie werd een requirementsanalyse gemaakt met als doel het maken van een document met functionele en niet-functionele requirements voor de webgebaseerde simulatieomgeving. Van hieruit startte het idee van het ontwerp van de webgebasseerde simulatie.
+Er werd gekozen om van een leeg canvas te beginnen om zo de volledige controle te hebben over hoe de tutorial eruit zou zien. Het idee was om de gebruiker eerst een account te laten aanmaken in de fictieve wachtwoordmanager, daarna twee accounts te laten aanmaken op twee fictieve sites en deze gegevens op te slaan in de wachtwoordmanager om dan finaal in te loggen op deze sites met behulp van de automatische invulling door de wachtwoordmanager. Dit allemaal begeleidt met een tutorial waarin de gebruiker stap voor stap doorheen dit proces ondersteund wordt.
+Na de tutorial kan de gebruiker vrij oefenen in de veilige oefenomgeving. 
+
+\section{Het maken van prototype}
+
+Hieronder een overzicht van de architectuur in Unity. De POC werd gemaakt met Unity 6.3 LTS (6000.3.6f1). 
+
+\begin{verbatim}
+Canvas (Screen Space – Overlay)
+├── BrowserChrome
+│   ├── AddressBar
+│   ├── PageTitle
+│   └── PageContainer
+│       ├── HomePage
+│       ├── EmailLoginPanel
+│       ├── WebshopPanel
+│       └── ErrorPage
+├── VaultPanel
+│   ├── VaultTitle
+│   ├── CloseVaultButton
+│   ├── EmptyLabel
+│   └── EntryScrollView
+├── GeneratorPanel
+├── HashPopup
+├── MasterLoginPanel
+├── TutorialOverlay
+│   ├── StepPanel
+│   ├── ArrowImage
+│   └── HighlightRect
+├── VaultManager
+└── GeneratorManager
+\end{verbatim}
+
+\section{Vragen voor deelnemers}
+
+Hieronder staan de vragen die aan de deelnemers werden gesteld om na te gaan of de simulatie het gewenste effect had en hoe zij de tutorial ervaren hebben.
+
+\subsection{Algemene ervaring}
+\begin{enumerate}
+    \item Hoe gemakkelijk was het om de simulatie te begrijpen zonder voorkennis?\\
+    \textit{(schaal 1--5)}
+    
+    \item Hoe duidelijk waren de instructies tijdens de tutorial?\\
+    \textit{(schaal 1--5)}
+    
+    \item Voelde de simulatie realistisch aan als nabootsing van een echte wachtwoordmanager?\\
+    \textit{(schaal 1--5)}
+\end{enumerate}
+
+\subsection{Leerdoelen}
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Begrijp je nu waarvoor een wachtwoordmanager dient?\\
+    \textit{(Ja / Gedeeltelijk / Nee)}
+    
+    \item Zou je na deze simulatie een echte wachtwoordmanager durven gebruiken?\\
+    \textit{(Ja / Misschien / Nee)}
+    
+    \item Wat is een masterwachtwoord en waarom is het belangrijk?\\
+    \textit{(open vraag)}
+    
+    \item Wat is het verschil tussen een zwak en een sterk wachtwoord?\\
+    \textit{(open vraag)}
+\end{enumerate}
+
+\subsection{Functies van de wachtwoordmanager}
+\begin{enumerate}
+    \setcounter{enumi}{7}
+    \item Hoe nuttig vond je de automatische invulfunctie (autofill)?\\
+    \textit{(schaal 1--5)}
+    
+    \item Begreep je hoe wachtwoorden worden opgeslagen in de kluis?\\
+    \textit{(Ja / Gedeeltelijk / Nee)}
+    
+    \item Was de wachtwoordgenerator duidelijk en nuttig?\\
+    \textit{(schaal 1--5)}
+\end{enumerate}
+
+\subsection{Hash educatie}
+\begin{enumerate}
+    \setcounter{enumi}{10}
+    \item Begreep je wat een hash is na de simulatie?\\
+    \textit{(Ja / Gedeeltelijk / Nee)}
+    
+    \item Waarom slaan websites wachtwoorden op als hash en niet als gewone tekst?\\
+    \textit{(open vraag)}
+    
+    \item Wat viel je op bij het vergelijken van twee hashes met een klein verschil in wachtwoord?\\
+    \textit{(open vraag)}
+\end{enumerate}
+
+\subsection{Veiligheid \& bewustwording}
+\begin{enumerate}
+    \setcounter{enumi}{13}
+    \item Gebruik je momenteel overal hetzelfde wachtwoord?\\
+    \textit{(Ja / Nee / Soms)}
+    
+    \item Ben je je na deze simulatie bewuster van de risico's van zwakke wachtwoorden?\\
+    \textit{(schaal 1--5)}
+    
+    \item Zou je andere mensen aanraden een wachtwoordmanager te gebruiken?\\
+    \textit{(Ja / Nee / Misschien)}
+\end{enumerate}
+
+\subsection{Verbeterpunten}
+\begin{enumerate}
+    \setcounter{enumi}{16}
+    \item Was er iets onduidelijk tijdens de tutorial?\\
+    \textit{(open vraag)}
+    
+    \item Wat zou je toevoegen of verbeteren aan de simulatie?\\
+    \textit{(open vraag)}
+    
+    \item Hoe lang duurde de tutorial ongeveer?\\
+    \textit{(< 10 min / 10--20 min / 20--30 min / > 30 min)}
+    
+    \item Hoe zou je de moeilijkheidsgraad omschrijven?\\
+    \textit{(Te makkelijk / Juist goed / Te moeilijk)}
+\end{enumerate}
